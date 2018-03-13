@@ -10,7 +10,8 @@ app.use(function (req, res, next) {
   }
 );
 
-var server = require('http').Server(app);
+app.get('/',(req, res)=>{res.send({kbt:'otha'})})
+var server = require('https').Server(app);
 var io = require('socket.io')(server);
 io.on('connection', (client) => {
     client.on('subscribeToTimer', (interval) => {
