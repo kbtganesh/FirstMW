@@ -26,5 +26,5 @@ io.on('connection', (client) => {
   });
 
   const port = 8000;
-  io.listen(port);
+  io.listen(process.env.PORT || port);
   console.log('omale',port);
