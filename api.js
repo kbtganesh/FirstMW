@@ -22,6 +22,8 @@ io.on('connection', (client) => {
         client.emit('timer', new Date(),'2nd');
       }, interval);
     });
+
+    client.on('chat message', message => io.emit('chat message', message));
     // io.on()
   });
 
