@@ -11,19 +11,16 @@ app.use(function (req, res, next) {
 );
 
 app.get('/',(req, res)=>{res.send({kbt:'otha'})})
-var server = require('https').Server(app);
+var server = require('https').Server(app);  
 var io = require('socket.io')(server);
 io.on('connection', (client) => {
     client.on('subscribeToTimer', (interval) => {
-      console.log('client is subscribing to timer with interval ', interval);
       setInterval(() => {
-        console.log('inside setinterval');
-
         client.emit('timer', new Date(),'2nd');
       }, interval);
     });
 
-    client.on('chat message', message => io.emit('chat message', message));
+    client.on('chat message', (id,message) => io.emit('chat message', id, message));
     // io.on()
   });
 

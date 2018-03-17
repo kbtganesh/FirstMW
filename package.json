@@ -11,6 +11,6 @@
     "start": "node api.js"
   },
   "engines": {
-    "node": "6.2.0"
+    "node": "8.4.0"
   }
 }
